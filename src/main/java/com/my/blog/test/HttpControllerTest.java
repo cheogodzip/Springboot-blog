@@ -17,6 +17,7 @@ public class HttpControllerTest {
 	
 	private static final String TAG = "HttpControllerTest : ";
 	
+//	http://localhost:8000/blog/http/lombok
 	@GetMapping("/http/lombok")
 	public String lombokTest() {
 		
@@ -28,7 +29,7 @@ public class HttpControllerTest {
 		return "lombokTest 완료";
 	}
 
-	// http://localhost:8080/http/get
+	// http://localhost:8000/blog/http/get
 	@GetMapping("/http/get")
 	public String getTest(Member m) { 
 		// RequestParam 어노테이션을 통해 쿼리 스트링을 받을 수 있다.
@@ -37,7 +38,7 @@ public class HttpControllerTest {
 		return "get 요청 : " +m.getId()  + ", " + m.getUsername() + ", " + m.getPassword() + ", " + m.getEmail();
 	}
 	
-	// http://localhost:8080/http/post
+	// http://localhost:8000/http/post
 	@PostMapping("/http/post")
 	public String postTest(@RequestBody Member m) {
 		// get요청과 마찬가지로 매개변수에 객체를 넣어 객체 필드값과 매치시킬 수도 있다. 대신 객체를 받을 때도 어노테이션 붙여야 한다. RequestBody
