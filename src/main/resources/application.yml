@@ -22,7 +22,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create # 테이블을 
+      ddl-auto: update # 테이블을 
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # 엔티티의 변수명 그대로 DB 에서 필드로 만들어준다.
       use-new-id-generator-mappings: false # jpa의 기본전략을 따라가지 않는다.
