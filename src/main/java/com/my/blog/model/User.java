@@ -10,9 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.DynamicInsert;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,7 +39,7 @@ public class User {
 	private String email;
 	
 //	@ColumnDefault("'user'")
-//	DB는 RolyType이 없어 어노테이션을 붙인다.
+//	DB는 RoleType이 없어 어노테이션을 붙인다.
 	@Enumerated(EnumType.STRING)
 	private RoleType  role; // Enum을 사용한다. ADMIN, USER
 	

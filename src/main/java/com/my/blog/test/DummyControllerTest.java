@@ -1,6 +1,10 @@
 package com.my.blog.test;
 
+import java.util.function.Supplier;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +17,18 @@ public class DummyControllerTest {
 	
 	@Autowired // 의존성 주입
 	private UserRepository userRepository;
+	
+	@GetMapping("/dummy/user/{id}")
+	public User detail(@PathVariable int id) {
+		User user = userRepository.findById(id).orElseThrow(new Supplier<IllegalArgumentException>() {
+			@Override
+			public IllegalArgumentException get() {
+				return new IllegalArgumentException("해당 유저는 없습니다. id : " + id);
+			}
+		});
+		
+		return user;
+	}
 	
 	@PostMapping("/dummy/join")
 	public User join(User user) {
